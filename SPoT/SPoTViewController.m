@@ -7,23 +7,79 @@
 //
 
 #import "SPoTViewController.h"
+#import "FlickrFetcher.h"
+#import "PhotoViewController.h"
 
 @interface SPoTViewController ()
+
+@property (nonatomic, strong) NSCountedSet *tags;
+@property (nonatomic, strong) NSArray *locations;
 
 @end
 
 @implementation SPoTViewController
 
+#pragma mark - Gettters/Setters
+
+- (NSSet *)tags {
+    if (!_tags) _tags = [[NSCountedSet alloc] init];
+    return _tags;
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    // Organize photos by tag
+    NSArray *photos = [FlickrFetcher stanfordPhotos];
+    [photos enumerateObjectsUsingBlock:^(NSDictionary *photo, NSUInteger idx, BOOL *stop) {
+        NSArray *tags = [(NSString *)photo[FLICKR_TAGS] componentsSeparatedByString:@" "];
+        [tags enumerateObjectsUsingBlock:^(NSString *tag, NSUInteger idx, BOOL *stop) {
+            if (![tag isEqualToString:@"portrait"] && ![tag isEqualToString:@"landscape"] && ![tag isEqualToString:@"cs193pspot"]) {
+                [self.tags addObject:[tag capitalizedString]];
+            }
+        }];
+    }];
+    
+    // Create a sorted array
+    self.locations = [[self.tags allObjects] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        return [obj1 compare:obj2];
+    }];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return self.locations.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSString *tag = self.locations[indexPath.row];
+    cell.textLabel.text = tag;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [self.tags countForObject:tag]];
+    return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell*)sender {
+    if ([segue.identifier isEqualToString:@"ShowPhotoList"]) {
+        if ([segue.destinationViewController isKindOfClass:[PhotoViewController class]]) {
+            PhotoViewController *controller = (PhotoViewController *)segue.destinationViewController;
+            controller.photoCategory = [sender.textLabel.text lowercaseString];
+        }
+    }
 }
 
 @end

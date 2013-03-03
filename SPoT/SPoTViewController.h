@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPoTViewController : UIViewController
+@interface SPoTViewController : UITableViewController
 
 @end
