@@ -21,6 +21,7 @@
 		470A981216DCD04F001ED69C /* SPoTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470A981116DCD04F001ED69C /* SPoTViewController.m */; };
 		470A981C16DCD206001ED69C /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 470A981B16DCD206001ED69C /* FlickrFetcher.m */; };
 		474F80D016DE1CFB00C83BC8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474F80CF16DE1CFB00C83BC8 /* PhotoViewController.m */; };
+		4790A6BA16E4AF390002479B /* PhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4790A6B916E4AF390002479B /* PhotoScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		470A981B16DCD206001ED69C /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		474F80CE16DE1CFB00C83BC8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		474F80CF16DE1CFB00C83BC8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		4790A6B816E4AF390002479B /* PhotoScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoScrollViewController.h; sourceTree = "<group>"; };
+		4790A6B916E4AF390002479B /* PhotoScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				470A97F916DCCDC5001ED69C /* SPoTAppDelegate.h */,
 				470A97FA16DCCDC6001ED69C /* SPoTAppDelegate.m */,
 				470A980216DCCDC6001ED69C /* MainStoryboard_iPhone.storyboard */,
+				4790A6B816E4AF390002479B /* PhotoScrollViewController.h */,
+				4790A6B916E4AF390002479B /* PhotoScrollViewController.m */,
 				474F80CE16DE1CFB00C83BC8 /* PhotoViewController.h */,
 				474F80CF16DE1CFB00C83BC8 /* PhotoViewController.m */,
 				470A980516DCCDC6001ED69C /* MainStoryboard_iPad.storyboard */,
@@ -203,6 +208,7 @@
 				470A981216DCD04F001ED69C /* SPoTViewController.m in Sources */,
 				470A981C16DCD206001ED69C /* FlickrFetcher.m in Sources */,
 				474F80D016DE1CFB00C83BC8 /* PhotoViewController.m in Sources */,
+				4790A6BA16E4AF390002479B /* PhotoScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

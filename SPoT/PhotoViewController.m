@@ -8,9 +8,11 @@
 
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
+#import "PhotoScrollViewController.h"
 
 @interface PhotoViewController ()
 @property (nonatomic, strong) NSArray *categoryPhotos;
+@property (nonatomic, strong) NSURL *activePhoto;
 @end
 
 @implementation PhotoViewController
@@ -53,7 +55,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.navigationItem.title = self.photoCategory;
+    self.navigationItem.title = [self.photoCategory capitalizedString];
 }
 
 #pragma mark - Table view data source
@@ -77,6 +79,23 @@
     NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
     cell.imageView.image = [UIImage imageWithData:photoData];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *photo = self.categoryPhotos[indexPath.row];
+    self.activePhoto = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
+    [self performSegueWithIdentifier:@"ShowPhoto" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell*)sender {
+    if ([segue.identifier isEqualToString:@"ShowPhoto"]) {
+        if ([segue.destinationViewController isKindOfClass:[PhotoScrollViewController class]]) {
+            PhotoScrollViewController *controller = (PhotoScrollViewController *)segue.destinationViewController;
+            controller.title = sender.textLabel.text;
+            NSData *photoData = [NSData dataWithContentsOfURL:self.activePhoto];
+            controller.photo = [UIImage imageWithData:photoData];
+        }
+    }
 }
 
 @end
