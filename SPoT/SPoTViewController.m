@@ -8,7 +8,7 @@
 
 #import "SPoTViewController.h"
 #import "FlickrFetcher.h"
-#import "PhotoViewController.h"
+#import "PhotoListViewController.h"
 
 @interface SPoTViewController ()
 
@@ -73,11 +73,23 @@
     return cell;
 }
 
+- (NSArray *)photosInCategory:(NSString *)category {
+    NSMutableArray *photos = [NSMutableArray array];
+    [[FlickrFetcher stanfordPhotos] enumerateObjectsUsingBlock:^(NSDictionary *photo, NSUInteger idx, BOOL *stop) {
+        NSString *tags = photo[FLICKR_TAGS];
+        if ([tags rangeOfString:category].location != NSNotFound) {
+            [photos addObject:photo];
+        }
+    }];
+    return photos;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell*)sender {
     if ([segue.identifier isEqualToString:@"ShowPhotoList"]) {
-        if ([segue.destinationViewController isKindOfClass:[PhotoViewController class]]) {
-            PhotoViewController *controller = (PhotoViewController *)segue.destinationViewController;
-            controller.photoCategory = [sender.textLabel.text lowercaseString];
+        if ([segue.destinationViewController isKindOfClass:[PhotoListViewController class]]) {
+            PhotoListViewController *controller = (PhotoListViewController *)segue.destinationViewController;
+            controller.photos = [self photosInCategory:[sender.textLabel.text lowercaseString]];
+            controller.name = sender.textLabel.text;
         }
     }
 }

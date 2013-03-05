@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="1005" y="20"/>
         </scene>
-        <!--Photo View Controller - Photos-->
+        <!--Photo List View Controller - Photos-->
         <scene sceneID="F2z-kB-x6w">
             <objects>
-                <tableViewController id="zwR-FF-1sK" customClass="PhotoViewController" sceneMemberID="viewController">
+                <tableViewController id="zwR-FF-1sK" customClass="PhotoListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vjR-va-ma0">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,11 +193,11 @@
             </objects>
             <point key="canvasLocation" x="1468" y="587"/>
         </scene>
-        <!--Navigation Controller - Featured-->
+        <!--Navigation Controller-->
         <scene sceneID="rih-Ls-N0n">
             <objects>
                 <navigationController id="eMI-AQ-vTd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Featured" id="dcq-yF-xKc"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="dcq-yF-xKc"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
@@ -214,11 +214,11 @@
             </objects>
             <point key="canvasLocation" x="548" y="20"/>
         </scene>
-        <!--Navigation Controller - Recents-->
+        <!--Navigation Controller-->
         <scene sceneID="O2y-dx-Xwc">
             <objects>
                 <navigationController id="tXR-cV-ONh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recents" id="uaG-pr-qJi"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="uaG-pr-qJi"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
@@ -239,6 +239,23 @@
     <resources>
         <image name="Default.png" width="320" height="480"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PhotoListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListViewController.h"/>
+        </class>
+        <class className="PhotoScrollViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoScrollViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SPoTViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SPoTViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

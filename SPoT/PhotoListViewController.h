@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewController : UITableViewController
+@interface PhotoListViewController : UITableViewController
 
-@property (nonatomic, strong)NSString *photoCategory;
+@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, strong) NSString *name;
 
 @end
