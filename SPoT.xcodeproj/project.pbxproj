@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4703171E16E602F900CEE384 /* RecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4703171D16E602F900CEE384 /* RecentsViewController.m */; };
+		4703172116E6041000CEE384 /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 4703172016E6041000CEE384 /* RecentPhotos.m */; };
 		470A97EB16DCCDC5001ED69C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470A97EA16DCCDC5001ED69C /* UIKit.framework */; };
 		470A97ED16DCCDC5001ED69C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470A97EC16DCCDC5001ED69C /* Foundation.framework */; };
 		470A97EF16DCCDC5001ED69C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470A97EE16DCCDC5001ED69C /* CoreGraphics.framework */; };
@@ -25,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4703171C16E602F900CEE384 /* RecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsViewController.h; sourceTree = "<group>"; };
+		4703171D16E602F900CEE384 /* RecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsViewController.m; sourceTree = "<group>"; };
+		4703171F16E6041000CEE384 /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
+		4703172016E6041000CEE384 /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotos.m; sourceTree = "<group>"; };
 		470A97E716DCCDC5001ED69C /* SPoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		470A97EA16DCCDC5001ED69C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		470A97EC16DCCDC5001ED69C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,9 +103,13 @@
 			children = (
 				470A981016DCD04F001ED69C /* SPoTViewController.h */,
 				470A981116DCD04F001ED69C /* SPoTViewController.m */,
+				4703171C16E602F900CEE384 /* RecentsViewController.h */,
+				4703171D16E602F900CEE384 /* RecentsViewController.m */,
 				470A97F916DCCDC5001ED69C /* SPoTAppDelegate.h */,
 				470A97FA16DCCDC6001ED69C /* SPoTAppDelegate.m */,
 				470A980216DCCDC6001ED69C /* MainStoryboard_iPhone.storyboard */,
+				4703171F16E6041000CEE384 /* RecentPhotos.h */,
+				4703172016E6041000CEE384 /* RecentPhotos.m */,
 				4790A6B816E4AF390002479B /* PhotoScrollViewController.h */,
 				4790A6B916E4AF390002479B /* PhotoScrollViewController.m */,
 				474F80CE16DE1CFB00C83BC8 /* PhotoListViewController.h */,
@@ -209,6 +219,8 @@
 				470A981C16DCD206001ED69C /* FlickrFetcher.m in Sources */,
 				474F80D016DE1CFB00C83BC8 /* PhotoListViewController.m in Sources */,
 				4790A6BA16E4AF390002479B /* PhotoScrollViewController.m in Sources */,
+				4703171E16E602F900CEE384 /* RecentsViewController.m in Sources */,
+				4703172116E6041000CEE384 /* RecentPhotos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

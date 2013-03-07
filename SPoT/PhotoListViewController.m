@@ -9,6 +9,7 @@
 #import "PhotoListViewController.h"
 #import "FlickrFetcher.h"
 #import "PhotoScrollViewController.h"
+#import "RecentPhotos.h"
 
 @interface PhotoListViewController ()
 @property (nonatomic, strong) NSURL *activePhoto;
@@ -64,6 +65,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *photo = self.photos[indexPath.row];
+    [RecentPhotos addPhoto:photo];
     self.activePhoto = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
     [self performSegueWithIdentifier:@"ShowPhoto" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
 }

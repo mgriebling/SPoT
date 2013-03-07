@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="2" y="280"/>
         </scene>
-        <!--Table View Controller - Recents-->
+        <!--Recents View Controller - Recents-->
         <scene sceneID="oOP-xA-Pe8">
             <objects>
-                <tableViewController id="RSU-6B-FOQ" sceneMemberID="viewController">
+                <tableViewController id="RSU-6B-FOQ" customClass="RecentsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ANZ-cd-rXJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="oNW-6C-7Ao" kind="push" identifier="ShowPhoto2" id="bWd-v9-ZC2"/>
+                                    <segue destination="pAo-dN-yh8" kind="push" identifier="ShowPhoto" id="q0g-sc-liq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clr-8X-4TZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="587"/>
+            <point key="canvasLocation" x="1940" y="20"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rih-Ls-N0n">
@@ -235,6 +235,33 @@
             </objects>
             <point key="canvasLocation" x="548" y="589"/>
         </scene>
+        <!--Photo Scroll View Controller - Photo-->
+        <scene sceneID="FSd-fT-mtQ">
+            <objects>
+                <viewController id="pAo-dN-yh8" customClass="PhotoScrollViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K7i-Os-2NA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wr-cP-G6S"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5wr-cP-G6S" firstAttribute="trailing" secondItem="K7i-Os-2NA" secondAttribute="trailing" type="default" id="51w-xm-HHi"/>
+                            <constraint firstItem="5wr-cP-G6S" firstAttribute="leading" secondItem="K7i-Os-2NA" secondAttribute="leading" type="default" id="Bgp-k5-DUD"/>
+                            <constraint firstItem="5wr-cP-G6S" firstAttribute="top" secondItem="K7i-Os-2NA" secondAttribute="top" type="default" id="ci9-Le-ISl"/>
+                            <constraint firstItem="5wr-cP-G6S" firstAttribute="bottom" secondItem="K7i-Os-2NA" secondAttribute="bottom" type="default" id="zav-BG-Ep4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photo" id="fQX-C6-ggD"/>
+                    <connections>
+                        <outlet property="scrollView" destination="5wr-cP-G6S" id="13C-c7-PtV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THI-rr-9xW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="589"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Default.png" width="320" height="480"/>
@@ -252,6 +279,9 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
+        <class className="RecentsViewController" superclassName="PhotoListViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentsViewController.h"/>
+        </class>
         <class className="SPoTViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SPoTViewController.h"/>
         </class>
@@ -261,7 +291,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="bWd-v9-ZC2"/>
-    </inferredMetricsTieBreakers>
 </document>
